@@ -6,9 +6,9 @@ package com.hcl.jorgon_r;
  */
 public class App 
 {
-	static int total = 0;
+	int total = 0;
 	
-	static int ReadArgs(String[] args)
+	int ReadArgs(String[] args)
 	{
 		for ( String s : args )
         {
@@ -19,7 +19,7 @@ public class App
         return 0;
 	}
 	
-	static void PrintArithmetic(int x, int y)
+	void PrintArithmetic(int x, int y)
 	{
 		System.out.println(x + y);
 		System.out.println(x - y);
@@ -27,13 +27,13 @@ public class App
 		System.out.println(x / y);
 	}
 	
-	static void ComputeAvg(int x, int y, int z)
+	void ComputeAvg(int x, int y, int z)
 	{
 		int avg = (x + y + z)/3;
 		System.out.println(avg);
 	}
 	
-	static boolean PrimeCheck(int x)
+	boolean PrimeCheck(int x)
 	{
 		for (int i = 2; i < x; i++)
 		{
@@ -42,13 +42,13 @@ public class App
 		return true;
 	}
 	
-	static int GetAscii(char c)
+	int GetAscii(char c)
 	{
 		int AsciiVal = (int) c;
 		return AsciiVal;
 	}
 	
-	static void FizzBuzz()
+	void FizzBuzz()
 	{
 		for (int i = 0; i <= 100; i++)
 		{
@@ -58,10 +58,52 @@ public class App
 		}
 	}
 	
+	int IsOdd(int x)
+	{
+		String s = String.valueOf(x);
+		for (int i = 0; i < s.length(); i++)
+		{
+			int value = Integer.valueOf(s.indexOf(i));
+			if (value % 2 != 0)
+			{
+				total = total + value;
+			}
+		}
+		return total;
+	}
+	
+	int EvenSquared(int x)
+	{
+		String s = String.valueOf(x);
+		for (int i = 0; i < s.length(); i++)
+		{
+			int value = Integer.valueOf(s.indexOf(i));
+			if (value % 2 == 0)
+			{
+				total = total + (value*value);
+			}
+		}
+		return total;
+	}
+	
+	String GetLargestWord(String s)
+	{
+		String[] strarray = s.split(" ", 0);
+		String longest = strarray[0];
+		for (String str : strarray)
+		{
+			if (str.length() > longest.length())
+			{
+				longest = str;
+			}
+		}
+		return longest;
+	}
 	
     public static void main( String[] args )
     {
-        App.ReadArgs(args);
-        App.PrintArithmetic(20, 4);
+    	App a = new App();
+        a.ReadArgs(args);
+        a.PrintArithmetic(20, 4);
     }
 }
