@@ -8,40 +8,43 @@ public class InvoiceTest
 	Invoice invoiceOne = new Invoice();
 	
 	@Test
-	void testGetPart()
+	public void testGetPart()
 	{
 		invoiceOne.setPartNumber("011");
 		assertEquals("011", invoiceOne.getPartNumber());
 	}
 	
 	@Test
-	void testGetDescription()
+	public void testGetDescription()
 	{
 		invoiceOne.setPartDescription("Convertor");
 		assertEquals("Convertor", invoiceOne.getPartDescription());
 	}
 	
 	@Test
-	void testGetQuantity()
+	public void testGetQuantity()
 	{
 		invoiceOne.setPartQuantity(10);
-		assertEquals(50, invoiceOne.getPartQuantity());
+		assertEquals(10, invoiceOne.getPartQuantity());
 	}
 	
 	@Test
-	void testGetPrice()
+	public void testGetPrice()
 	{
 		invoiceOne.setPartPrice(100.0);
 		assertEquals(100.0, invoiceOne.getPartPrice(), 0.01);
 	}
 	
 	@Test
-	void testInvoiceAmount()
+	public void testInvoiceAmount()
 	{
+		invoiceOne.setPartPrice(100.0); invoiceOne.setPartQuantity(10);
 		assertEquals(1000.0, invoiceOne.getInvoiceAmount(), 0.01);
+		
 		invoiceOne.setPartPrice(-1);
 		assertEquals(0, invoiceOne.getInvoiceAmount(), 0.01);
-		invoiceOne.setPartPrice(100);
+		
+		invoiceOne.setPartPrice(100.0);
 		invoiceOne.setPartQuantity(-1);
 		assertEquals(0, invoiceOne.getInvoiceAmount(), 0.01);
 	}
