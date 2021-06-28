@@ -49,9 +49,33 @@ public class TestDog
 	public void testShowExcitement()
 	{
 		String str1 = d1.getName() + " is wagging its tail!";
-		String str2 = d1.getName() + " is wagging its tail!";
+		String str2 = d2.getName() + " is wagging its tail!";
 		
 		assertEquals(str1, d1.showExcitement());
-		assertEquals(str2, d1.showExcitement());
+		assertEquals(str2, d2.showExcitement());
+	}
+	
+	@Test
+	public void testStreamedExcitement()
+	{
+		String str1 = d1.getName() + " is wagging its tail!!!";
+		String str2 = d1.getName() + " is wagging its tail!!!!!";
+		
+		assertEquals(str1, d1.showExcitment(3));
+		assertEquals(str2, d1.showExcitment(5));
+	}
+	
+	@Test
+	public void testEating()
+	{
+		String str1 = d1.getName() + " is eating.";
+		assertEquals(str1, d1.eating());
+	}
+	
+	@Test
+	public void testEatingVar()
+	{
+		String str1 = d1.getName() + " is eating dogfood.";
+		assertEquals(str1, d1.eating("dogfood"));
 	}
 }

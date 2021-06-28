@@ -1,4 +1,6 @@
 package com.hcl.OOP;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 class Dog
 {
@@ -55,4 +57,19 @@ class Dog
 		return this.name + " is wagging its tail!";
 	}
 	
+	String showExcitment(int levelOfExcitement)
+	{
+		Optional<String> excitementMultiplier = Stream.generate(() -> "!").limit(levelOfExcitement).reduce((a, b) -> a + b);
+		return this.name + " is wagging its tail" + excitementMultiplier.get();
+	}
+	
+	String eating()
+	{
+		return this.name + " is eating.";
+	}
+	
+	String eating(String food)
+	{
+		return this.name + " is eating " + food + ".";
+	}
 }
