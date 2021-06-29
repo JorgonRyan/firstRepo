@@ -1,43 +1,34 @@
 package com.hcl.Inheritance;
 
-class Aclass 
-{
-	String whosTalking()
-	{
+class Aclass {
+	String whosTalking() {
 		return "this is Aclass.";
 	}
-	
-	int whosNumber()
-	{
+
+	int whosNumber() {
 		return 100;
 	}
-	
-	boolean whosRight()
-	{
+
+	boolean whosRight() {
 		return false;
 	}
 }
 
-class Bclass extends Aclass
-{
+class Bclass extends Aclass {
 	@Override
-	int whosNumber()
-	{
+	int whosNumber() {
 		return 200;
 	}
-	
+
 	@Override
-	boolean whosRight()
-	{
+	boolean whosRight() {
 		return true;
 	}
 }
 
-class Cclass extends Bclass
-{
+class Cclass extends Bclass {
 	@Override
-	String whosTalking()
-	{
+	String whosTalking() {
 		return "this is Cclass.";
 	}
 }

@@ -1,34 +1,27 @@
 package com.hcl.Inheritance;
+
 import static java.lang.System.out;
 
-class Animal
-{ 
-	void walk()
-	{ 
-		out.println("I am walking"); 
-	} 
+class Animal {
+	void walk() {
+		out.println("I am walking");
+	}
 }
 
-class Dog extends Animal
-{ 
-	void eat()
-	{ 
-		out.println("I am eating"); 
+class Dog extends Animal {
+	void eat() {
+		out.println("I am eating");
 	}
-	
-	void bark()
-	{
+
+	void bark() {
 		out.println("I am barking");
 	}
 }
 
-class DogInAction extends Dog
-{
-	void action()
-	{
-		walk(); 
+class DogInAction extends Dog {
+	void action() {
+		walk();
 		eat();
 		bark();
 	}
-} 
-
+}
