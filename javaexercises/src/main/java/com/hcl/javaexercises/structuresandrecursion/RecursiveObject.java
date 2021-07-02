@@ -15,6 +15,9 @@ class RecursiveObject {
 	char[] charArr;
 
 	public int maxCharacterWithStream(String passedIn) {
+		if (passedIn.length() == 0) {
+			return -1;
+		}
 		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
 
 		for (int i = 0; i < passedIn.length(); i++) {
@@ -28,6 +31,9 @@ class RecursiveObject {
 	}
 
 	public int maxCharacterWithLoop(String passedIn) {
+		if (passedIn.length() == 0) {
+			return -1;
+		}
 		int count = 0, max = 0;
 		char maxChar = 0, currentChar, possibleChar;
 		for (int i = 0; i < passedIn.length(); i++) {
@@ -63,29 +69,32 @@ class RecursiveObject {
 	}
 
 	boolean openAndClosed(String parameter) {
-		Stack<Character> openCharStack = new Stack<Character>();
+		Stack<Character> charStack = new Stack<Character>();
 		charArr = parameter.toCharArray();
-		if (charArr[0] != '{' || charArr[0] != '[' || charArr[0] != '(' || charArr[0] != '<') {
+		if (charArr[0] != '{' && charArr[0] != '[' && charArr[0] != '(' && charArr[0] != '<') {
 			return false;
 		}
 		for (int i = 0; i < charArr.length; i++) {
-			if (charArr[i] != '{' || charArr[i] != '[' || charArr[i] != '(' || charArr[i] != '<') {
-				openCharStack.push(charArr[i]);
-			} else if (charArr[i] != '}' || charArr[i] != ']' || charArr[i] != ')' || charArr[i] != '>') {
-				if (openCharStack.isEmpty()) {
+			if (charArr[i] == '{' || charArr[i] == '[' || charArr[i] == '(' || charArr[i] == '<') {
+				charStack.push(charArr[i]);
+			} else if (charArr[i] == '}' || charArr[i] == ']' || charArr[i] == ')' || charArr[i] == '>') {
+				if (charStack.isEmpty()) {
 					return false;
 				}
-				openCharStack.pop();
+				charStack.pop();
 			}
 		}
-		if (openCharStack.isEmpty()) {
+		if (charStack.isEmpty()) {
 			return true;
 		}
 		return false;
 	}
 
 	int birthdayCandles(List<Integer> candles) {
-		int numberOfTallestCandles = 0, max;
+		if (candles.size() == 0) {
+			return 0;
+		}
+		int numberOfTallestCandles = 1, max;
 		Collections.sort(candles, Collections.reverseOrder());
 		max = candles.get(0);
 		for (int i = 1; i < candles.size(); i++) {
@@ -96,18 +105,11 @@ class RecursiveObject {
 		return numberOfTallestCandles;
 	}
 
-	int summation() {
-		int total = 0;
-		// ((n + 1)*n)/2
-		return total;
+	int summation(int n) {
+		return ((n + 1) * n) / 2;
 	}
 
 	public static void main(String[] args) {
-		RecursiveObject rec = new RecursiveObject();
-		rec.maxCharacterWithStream("hello");
-		rec.maxCharacterWithLoop("hello");
-		System.out.println(rec.isStringAPalindrome("abba"));
-		System.out.println(rec.isStringAPalindrome("level"));
-
+		RecursiveObject recObj = new RecursiveObject();
 	}
 }
