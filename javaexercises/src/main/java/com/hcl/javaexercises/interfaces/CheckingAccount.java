@@ -11,13 +11,11 @@ import lombok.Setter;
 public class CheckingAccount implements BankAccount {
 	private String owner;
 	@Setter(AccessLevel.PRIVATE)
-	private String password;
-	@Setter(AccessLevel.PRIVATE)
-	private String toAppend;
+	private String password, toAppend;
 	@Setter(AccessLevel.PRIVATE)
 	private StringBuilder transactionRecord = new StringBuilder();
 	private Double balance;
-	private final Double insufficientFundsFee = 25.00;
+	private final Double INSUFFICIENTFUNDSFEE = 25.00;
 	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 	private LocalDateTime now = LocalDateTime.now();
 
@@ -58,7 +56,7 @@ public class CheckingAccount implements BankAccount {
 		toAppend = now.format(formatter).toString() + "\tA Withdrawal Of " + amount.toString() + " Has Occured.\n";
 		transactionRecord.append(toAppend);
 		if (this.balance < 0) {
-			this.balance -= insufficientFundsFee;
+			this.balance -= INSUFFICIENTFUNDSFEE;
 			toAppend = now.format(formatter).toString()
 					+ "\tYour Account Was Overdrawn And A Insufficient Funds Fee Has Posted.\n";
 			transactionRecord.append(toAppend);
