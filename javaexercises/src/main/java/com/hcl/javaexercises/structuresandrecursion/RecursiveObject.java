@@ -109,7 +109,16 @@ class RecursiveObject {
 		return ((n + 1) * n) / 2;
 	}
 
+	int fiboRecursive(int n) {
+		if (n == 0) {
+			return 0;
+		}
+		if (n == 1) {
+			return 1;
+		}
+		return fiboRecursive(n - 2) + fiboRecursive(n - 1);
+	}
+
 	public static void main(String[] args) {
-		RecursiveObject recObj = new RecursiveObject();
 	}
 }
