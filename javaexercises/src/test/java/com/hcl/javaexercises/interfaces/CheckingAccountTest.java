@@ -23,6 +23,7 @@ public class CheckingAccountTest {
 		assertEquals(-35.00, checking1.withdrawal(110.00), 0.01);
 		assertEquals(-1.00, checking1.processCheck(34.00), 0.01);
 		assertEquals(0, checking1.processCheck(1.00), 0.01);
+
 	}
 
 	@Test
